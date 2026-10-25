@@ -1,0 +1,81 @@
+/* Hero banner: background, backdrop and the floating decor layers.
+   Colours follow the Figma base frame (node 4:2). */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 680px;
+  overflow: hidden;
+  background: #fcf9f4;
+}
+
+/* Soft bokeh photo multiplied into the background at 10% */
+.hero-backdrop {
+  position: absolute;
+  left: 0;
+  top: -352px;
+  width: 100%;
+  height: 1280px;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Decor field: covers the hero, clips the bleed, never takes clicks */
+.hp-decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Fixed 1920x680 reference box, centred, so the composition keeps its
+   shape on any screen and bleeds past the edges instead of reflowing */
+.hp-box {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.hp-layer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp-turn {
+  flex: none;
+}
+
+.hp-piece {
+  position: relative;
+}
+
+.hp-crop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hp-crop img {
+  position: absolute;
+  max-width: none;
+}
+
+.hp-full {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-position: bottom;
+}
+
+/* Page content sits above the decor */
+.hero-content {
+  position: relative;
+}
